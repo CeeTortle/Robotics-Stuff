@@ -1,0 +1,9 @@
+import commands2
+import wpilib
+from swerveSubsys import swerveModule
+class swerveCommands(commands2.SwerveControllerCommand):
+    def __init__(self, trajectory, pose, kinematics, controller, outputModuleStates, requirements, desiredRotation = None):
+        super().__init__(trajectory, pose, kinematics, controller, outputModuleStates, requirements, desiredRotation)-
+    def execute(self):
+
+    def wh
