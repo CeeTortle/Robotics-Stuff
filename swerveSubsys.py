@@ -12,19 +12,29 @@ class swerveSubsys():
         driveConfig=phoenix6.configs.TalonFXConfiguration()
         driveConfig.slot0.k_p = 0.3
         driveConfig.slot0.k_i = 0.002
+        driveConfig.slot0.k_p = 0.3
+        driveConfig.slot0.k_i = 0.002
         driveConfig.slot0.k_d= 0
+        driveConfig.slot0.k_v = 0.01
+        driveConfig.slot0.k_s = 0.0875
+        driveConfig.feedback.sensor_to_mechanism_ratio = 8.14
         driveConfig.slot0.k_v = 0.01
         driveConfig.slot0.k_s = 0.0875
         driveConfig.feedback.sensor_to_mechanism_ratio = 8.14
         turnConfig=phoenix6.configs.TalonFXConfiguration()
         turnConfig.slot1.k_p = 50
+        turnConfig.slot1.k_p = 50
         turnConfig.slot1.k_i = 0
         turnConfig.slot1.k_d= 0
+        turnConfig.slot1.k_v = 0.01
+        turnConfig.feedback.sensor_to_mechanism_ratio = 12.8
         turnConfig.slot1.k_v = 0.01
         turnConfig.feedback.sensor_to_mechanism_ratio = 12.8
         turnConfig.closed_loop_general.continuous_wrap = True
         self.driveMotor.configurator.apply(driveConfig)
         self.turnMotor.configurator.apply(turnConfig)
+        self.postion=phoenix6.controls.PositionVoltage(0).with_slot(1)
+        self.dutyCycle=phoenix6.controls.VelocityVoltage(0).with_slot(0)
         self.postion=phoenix6.controls.PositionVoltage(0).with_slot(1)
         self.dutyCycle=phoenix6.controls.VelocityVoltage(0).with_slot(0)
         
